@@ -14,8 +14,7 @@ public class Program {
 
         PasswordGenerator password = new PasswordGenerator();
 
-        password.passwordGenerator(lenght);
-
+       password.passwordGenerator(lenght);
 
         sc.close();
     }
