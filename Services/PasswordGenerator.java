@@ -1,8 +1,6 @@
 package Services;
 
 import java.security.SecureRandom;
-import java.util.InputMismatchException;
-import java.util.Random;
 import java.util.Scanner;
 
 public class PasswordGenerator {
@@ -10,6 +8,7 @@ public class PasswordGenerator {
     public PasswordGenerator(){
     }
 
+    // Gera aleatóriamente uma letra com base na String estabelecida
     public String randomLetters(String base){
         StringBuilder sb = new StringBuilder(base);
         String normalChar = "abcdefghijklmnopqrstuvwxyz";
@@ -22,6 +21,7 @@ public class PasswordGenerator {
         return base = sb.toString();
     }
 
+    // Gera aleatóriamente uma letra maiúscula com base na String estabelecida
     public String randomUpper(String base){
         StringBuilder sb = new StringBuilder(base);
         String upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -34,6 +34,7 @@ public class PasswordGenerator {
         return base = sb.toString();
     }
 
+    // Gera aleatóriamente um número com base na String estabelecida
     public String randomNum(String base){
         StringBuilder sb = new StringBuilder(base);
         String numChar = "0123456789";
@@ -46,6 +47,7 @@ public class PasswordGenerator {
         return base = sb.toString();
     }
 
+    // Gera aleatóriamente um caractere especial com base na String estabelecida
     public String randomEsp(String base){
         StringBuilder sb = new StringBuilder(base);
         String espChar = "!@#$%&*";
@@ -58,6 +60,7 @@ public class PasswordGenerator {
         return base = sb.toString();
     }
 
+    //Constrói a string password
     public String passwordGenerator(int lenght){
 
         Scanner sc = new Scanner(System.in);
@@ -79,7 +82,7 @@ public class PasswordGenerator {
             throw new IllegalArgumentException("Nenhuma opção foi selecionada");
         }
 
-        if (letter != "n" || letter != "y" && upper != "n" || upper != "y" && number != "n" || number != "y" && esp != "n" || esp != "y"){
+        if (!letter.equals("n") && !letter.equals("y") && !upper.equals("n") && !upper.equals("y") && !number.equals("n") && !number.equals("y") && !esp.equals("n") && !esp.equals("y")){
             throw new IllegalArgumentException("Entrada Inválida.");
         }
 
