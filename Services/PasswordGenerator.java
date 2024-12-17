@@ -86,19 +86,39 @@ public class PasswordGenerator {
             throw new IllegalArgumentException("Entrada Inválida.");
         }
 
+        int acumulador = 0;
+
             for (int i = 0; i < lenght; i++){
-                if (letter.equals("y")){
-                result = randomLetters(result);
-                }
-                if(upper.equals("y")){
-               result = randomUpper(result);
-                }
-                if(number.equals("y")){
-               result = randomNum(result);
-                }
-                if(esp.equals("y")){
-               result = randomEsp(result);
-                }
+
+                    if (acumulador == lenght) {
+
+                    }else if (letter.equals("y")) {
+                        result = randomLetters(result);
+                        acumulador += 1;
+                    }
+                    if (acumulador == lenght) {
+
+                    } else if(upper.equals("y")){
+                        result = randomUpper(result);
+                        acumulador += 1;
+                    }
+
+                    if (acumulador == lenght) {
+
+                    }else if(number.equals("y")){
+                        result = randomNum(result);
+                        acumulador += 1;
+                    }
+
+                    if (acumulador == lenght) {
+
+                    }else if(esp.equals("y")){
+                        result = randomEsp(result);
+                        acumulador += 1;
+                    }
+
+
+
             }
 
             sc.close();
