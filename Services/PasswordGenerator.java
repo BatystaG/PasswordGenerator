@@ -1,6 +1,7 @@
 package Services;
 
 import java.security.SecureRandom;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -57,22 +58,6 @@ public class PasswordGenerator {
         return base = sb.toString();
     }
 
-    //Decide a ordem de randomização
-    public String randomOrder(String base, int range){
-        Random rd = new Random();
-
-        int rn = rd.nextInt(range) + 1;
-
-        switch (rn){
-            case 1:
-
-
-
-        }
-
-        return null;
-    }
-
     public String passwordGenerator(int lenght){
 
         Scanner sc = new Scanner(System.in);
@@ -90,24 +75,32 @@ public class PasswordGenerator {
         System.out.println("Deseja que a senha possua caracteres especiais? (y/n)");
         String esp = sc.nextLine();
 
-        for (int i = 0; i < lenght; i++){
-            if (letter.equals("y")){
-                result = randomLetters(result);
-            }
-            if(upper.equals("y")){
-               result = randomUpper(result);
-            }
-            if(number.equals("y")){
-               result = randomNum(result);
-            }
-            if(esp.equals("y")){
-               result = randomEsp(result);
-            }
+        if(letter.equals("n") && upper.equals("n") && number.equals("n") && esp.equals("n")){
+            throw new IllegalArgumentException("Nenhuma opção foi selecionada");
         }
 
-        System.out.println(result);
+        if (letter != "n" || letter != "y" && upper != "n" || upper != "y" && number != "n" || number != "y" && esp != "n" || esp != "y"){
+            throw new IllegalArgumentException("Entrada Inválida.");
+        }
 
-        sc.close();
+            for (int i = 0; i < lenght; i++){
+                if (letter.equals("y")){
+                result = randomLetters(result);
+                }
+                if(upper.equals("y")){
+               result = randomUpper(result);
+                }
+                if(number.equals("y")){
+               result = randomNum(result);
+                }
+                if(esp.equals("y")){
+               result = randomEsp(result);
+                }
+            }
+
+            sc.close();
+
+        System.out.println(result);
 
         return result;
     }
