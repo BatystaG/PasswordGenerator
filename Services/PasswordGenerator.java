@@ -65,9 +65,11 @@ public class PasswordGenerator {
 
         Scanner sc = new Scanner(System.in);
         StringBuilder sb = new StringBuilder();
-
-
         String result = "";
+
+        if (lenght < 6 || lenght > 256){
+            throw new IllegalArgumentException("Digite um número entre 6 e 256");
+        }
 
         System.out.println("Deseja que a senha possua letras? (y/n)");
         String letter = sc.nextLine();
@@ -77,6 +79,7 @@ public class PasswordGenerator {
         String number = sc.nextLine();
         System.out.println("Deseja que a senha possua caracteres especiais? (y/n)");
         String esp = sc.nextLine();
+
 
         if(letter.equals("n") && upper.equals("n") && number.equals("n") && esp.equals("n")){
             throw new IllegalArgumentException("Nenhuma opção foi selecionada");
