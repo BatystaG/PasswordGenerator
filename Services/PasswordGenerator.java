@@ -61,13 +61,13 @@ public class PasswordGenerator {
     }
 
     //Constrói a string password
-    public String passwordGenerator(int lenght){
+    public String passwordGenerator(int length){
 
         Scanner sc = new Scanner(System.in);
         StringBuilder sb = new StringBuilder();
         String result = "";
 
-        if (lenght < 6 || lenght > 256){
+        if (length < 6 || length > 256){
             throw new IllegalArgumentException("Digite um número entre 6 e 256");
         }
 
@@ -91,29 +91,29 @@ public class PasswordGenerator {
 
         int acumulador = 0;
 
-            for (int i = 0; i < lenght; i++){
+            for (int i = 0; i < length; i++){
 
-                    if (acumulador == lenght) {
+                    if (acumulador == length) {
 
                     }else if (letter.equals("y")) {
                         result = randomLetters(result);
                         acumulador += 1;
                     }
-                    if (acumulador == lenght) {
+                    if (acumulador == length) {
 
                     } else if(upper.equals("y")){
                         result = randomUpper(result);
                         acumulador += 1;
                     }
 
-                    if (acumulador == lenght) {
+                    if (acumulador == length) {
 
                     }else if(number.equals("y")){
                         result = randomNum(result);
                         acumulador += 1;
                     }
 
-                    if (acumulador == lenght) {
+                    if (acumulador == length) {
 
                     }else if(esp.equals("y")){
                         result = randomEsp(result);

@@ -10,11 +10,11 @@ public class Program {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Digite um número de caracteres entre 6-256 para gerar a senha");
-        int lenght = sc.nextInt();
+        int length = sc.nextInt();
 
         PasswordGenerator password = new PasswordGenerator();
 
-       password.passwordGenerator(lenght);
+       password.passwordGenerator(length);
 
         sc.close();
     }
